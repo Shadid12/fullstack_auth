@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Header extends Component {
+
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return 'Still deciding';
+      case false:
+        return 'im logged out';
+      default:
+        return 'im logged in';
+    }
+  }
+
+
   render() {
     return (
       <div>
         <h2>Header</h2>
-        <button>Sign in with Google</button>
+        <div>
+        	{this.renderContent()}
+        </div>
       </div>
     );
   }
+
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+	return { auth };
+ }
+
+export default connect(mapStateToProps)(Header);
