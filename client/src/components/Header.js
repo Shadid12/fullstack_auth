@@ -8,7 +8,9 @@ class Header extends Component {
       case null:
         return 'Still deciding';
       case false:
-        return 'im logged out';
+        return (
+        	<a href="http://localhost:3001/auth/google">Sign in</a>
+        )
       default:
         return 'im logged in';
     }
