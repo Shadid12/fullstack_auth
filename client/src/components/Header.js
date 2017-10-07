@@ -9,10 +9,12 @@ class Header extends Component {
         return 'Still deciding';
       case false:
         return (
-        	<a href="http://localhost:3001/auth/google">Sign in</a>
+        	<a href="/auth/google">Login With Google</a>
         )
       default:
-        return 'im logged in';
+        return (
+          <a href="/api/logout">Logout</a>
+        )
     }
   }
 
